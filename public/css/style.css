@@ -1,0 +1,244 @@
+body {
+
+    background: linear-gradient(to bottom, #fff, #f1ec6e);
+    min-height: 100vh;
+}
+
+.nopicture {
+    width: 200px;
+    min-height: 200px;
+    background-color: #1c7430;
+}
+
+h1 {
+    text-align: center;
+}
+
+.img-thumbnail {
+    max-width: 200px;
+    overflow: hidden;
+}
+
+
+.navbar-light {
+    display: flex;
+    justify-content: space-between;
+}
+
+.edit_block {
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+}
+
+.newposts__title {
+    display: flex;
+    justify-content: space-between;
+}
+
+.newposts__content__main__text {
+    overflow: hidden;
+    max-height: 5.5em;
+}
+
+.newposts__content__main__bottom, .posts__content__main__bottom {
+    color: darkgray;
+    font-size: 0.8em;
+}
+
+.comment-author-date {
+   font-size: 10px;
+}
+
+.comment-author-date>span {
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.pop_message {
+    width: 100%;
+    padding: 10px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: none;
+    z-index: 1000;
+    opacity: 40%;
+
+}
+
+.msg_fail {
+    background-color: rgba(223, 45, 13, 0.4);
+}
+
+.msg_success {
+    background-color: rgba(30,100,60,0.4);
+}
+
+.post_buttons  {
+    display: flex;
+    min-width: 200px;
+    justify-content: space-between;
+}
+
+.cancelpub {
+    margin-left: 5px;
+}
+
+.user_posts, .posts__content {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.posts__content__main {
+    display: flex;
+    flex-direction: column;
+    /*justify-content: space-between;*/
+}
+
+.posts__content__main__text {
+    overflow: hidden;
+    max-height: 5.5em;
+}
+
+.posts__content__main__title {
+    padding-left: 15px;
+    width: 100%;
+    text-align: left;
+}
+
+.posts__content__main__text {
+    padding-left: 15px;
+    text-align: left;
+}
+
+.posts__content__main__bottom {
+    display: flex;
+    justify-content: start;
+}
+
+.posts__author {
+    padding-right: 30px;
+}
+
+footer  {
+    min-height: 100px;
+    text-align: center;
+    font-size: 24px;
+    color: #0b2e13;
+    font-weight: 600;
+}
+
+.up {
+    width: 40px;
+    cursor: pointer;
+    position: fixed;
+    right: 5px;
+    bottom: 35px;
+    background-color: rgba(0, 36, 82, 0.4);
+    z-index: 1000;
+    opacity: 40%;
+
+}
+
+.giveadmin:hover, .removeadmin:hover, .notactivepost:hover, .activepost:hover {
+    text-shadow: 1px 1px 2px black, 0 0 1em #002452;
+}
+
+
+.giveadmin, .notactivepost {
+    cursor: pointer;
+    color: rgba(255, 14, 14, 0.73);
+}
+
+.removeadmin, .activepost {
+    cursor: pointer;
+    color: #115d1c;
+}
+
+.user_posts_editors {
+    padding-top: 15px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.user_posts_editors > form {
+    padding-left: 15px;
+}
+
+.switcher__header {
+    font-size: 24px;
+    display: flex;
+    justify-content: space-between;
+    min-height: 45px;
+    width: 100%;
+    background: #0ea7aa;
+    cursor: pointer;
+    text-align: center;
+    /*align-items: center;*/
+    /*line-height: 0.8em;*/
+
+}
+
+.post_label {
+    width: 50%;
+    text-align: center;
+    
+    /*border-right: #005cbf 1px solid;*/
+}
+
+.comment_label {
+    width: 50%;
+    text-align: center;
+    /*border-left: #005cbf 1px solid;*/
+}
+
+#selected_label {
+    cursor: auto;
+    background: #0f8ff2;
+    font-weight: bold;
+    /*text-shadow: 1px 1px 2px black, 0 0 1em #002452;*/
+
+
+}
+
+.img-thumbnail {
+    max-width: 200px;
+    overflow: hidden;
+}
+
+.img-cat-thumbnail {
+    max-width: 60px;
+    overflow: hidden;
+}
+
+.user_comments {
+    display: none;
+}
+
+.comment_post_title {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+}
+
+.table_comments {
+    width: 100%;
+}
+
+.comment_content_block {
+    width: 100%;
+}
+
+.comment_date_block {
+    min-width: 190px;
+}
+
+.comment_delete_block {
+    min-width: 72px;
+}
