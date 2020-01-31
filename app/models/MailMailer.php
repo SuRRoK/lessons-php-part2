@@ -13,10 +13,13 @@ class MailMailer
     public function __construct(Swift_SmtpTransport $smtpTransport)
     {
         $this->smtpTransport = $smtpTransport;
-        //d($this->smtpTransport);
-        //(new Swift_SmtpTransport($smtp_host, 465, 'ssl'));
     }
 
+    /**
+     * @param $mail_login
+     * @param $mail_password
+     * @return Swift_Mailer
+     */
     public function setTransport($mail_login, $mail_password)
     {
 

@@ -34,7 +34,7 @@ use League\Plates\Engine;
 //Initialise PHP-DI
 $builder = new ContainerBuilder();
 
-//Задаем исключения для PHP-DI
+//Exceptions for PHP-DI
 $builder->addDefinitions([
     Engine::class => function () {
         return new Engine('../app/views');
@@ -61,10 +61,9 @@ $builder->addDefinitions([
 
 $container = $builder->build();
 
-//Распознавание адресной строки и перенаправление на нужную страницу/функцию
 
 $dispatcher = FastRoute\simpleDispatcher(function (FastRoute\RouteCollector $r) {
-//База маршрутов
+//Routes
     $r->addRoute('GET', '/home',        [HomeController::class, 'index']);
     $r->addRoute('GET', '/',            [HomeController::class, 'index']);
     $r->addRoute('GET', '/about',       [HomeController::class, 'about']);
@@ -116,18 +115,16 @@ $routeInfo = $dispatcher->dispatch($httpMethod, $uri);
 // d($routeInfo);
 switch ($routeInfo[0]) {
 
-    //Обработка ошибки 404
     case FastRoute\Dispatcher::NOT_FOUND:
         header("Location: /404");
         exit();
 
-    //Обработка ошибки 405
     case FastRoute\Dispatcher::METHOD_NOT_ALLOWED:
         $allowedMethods = $routeInfo[1];
         header("Location: /405");
         exit();
 
-    //Если адрес распознан,
+    //Success request
     case FastRoute\Dispatcher::FOUND:
         $handler = $routeInfo[1];
         $vars = $routeInfo[2];
@@ -135,9 +132,7 @@ switch ($routeInfo[0]) {
         //$container->call($routeInfo[1],$routeInfo[2]);
         $container->call($handler, ['vars' => $vars]);
 
-        //      $controller = $container->get($handler[0],$vars);
-
-        //Метод вызова функции без DI
+        //Before DI
 //         $controller = new $handler[0];
 //         $controller->{$handler[1]}($vars);
         break;

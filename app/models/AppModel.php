@@ -25,8 +25,6 @@ class AppModel
         $this->mail_send = $mailSend;
         $this->auth = $auth;
         $this->image = $image;
-
-        /*$this->time = $time;*/
     }
 
 

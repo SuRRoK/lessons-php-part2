@@ -11,7 +11,7 @@ if (array_key_exists('auth_logged_in', $_SESSION) && ($post['userID'] == $_SESSI
                     <div class="form-group">
                         <label for="title">Title</label>
                         <input type="text" name="title" id="title" class="form-control"
-                               value="<?php echo html_entity_decode($post['title']) ?>"> <br>
+                               value="<?= html_entity_decode($post['title']) ?>"> <br>
                         <label for="category">Category</label>
                         <select name="category" id="category">
                             <option value="0">Choose post category</option>
@@ -26,7 +26,7 @@ if (array_key_exists('auth_logged_in', $_SESSION) && ($post['userID'] == $_SESSI
                             } ?>
                         </select>
                         <textarea rows="8" cols="120" name="content" class="form-control"
-                                  id="editor"> <?php echo html_entity_decode($post['content']) ?></textarea> <br>
+                                  id="editor"> <?= html_entity_decode($post['content']) ?></textarea> <br>
                         <script>
                             ClassicEditor
                                 .create(document.querySelector('#editor'))
@@ -36,7 +36,7 @@ if (array_key_exists('auth_logged_in', $_SESSION) && ($post['userID'] == $_SESSI
                         </script>
                         <label for="image">Updates picture if already exist or set image if not yet</label>
                         <input type="file" name="image" id="image">
-                        <input type="hidden" name="id" value="<?php echo $post['ID'] ?>">
+                        <input type="hidden" name="id" value="<?= $post['ID'] ?>">
                     </div>
                     <div class="form-group">
                         <button class="btn btn-warning">Edit post</button>

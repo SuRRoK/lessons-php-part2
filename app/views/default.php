@@ -22,10 +22,10 @@
 
 if (($_SESSION['message'] != '') && ($_SESSION['message_status'] == 1)) { ?>
 
-    <div class="pop_message msg_fail"><?php echo $_SESSION['message']; ?></div>
+    <div class="pop_message msg_fail"><?= $_SESSION['message']; ?></div>
 
 <?php } else { ?>
-    <div class="pop_message msg_success"><?php echo $_SESSION['message']; ?></div> <?php
+    <div class="pop_message msg_success"><?= $_SESSION['message']; ?></div> <?php
 }
 $_SESSION['message'] = '';
 $_SESSION['message_status'] = 0; ?>
@@ -51,7 +51,7 @@ $_SESSION['message_status'] = 0; ?>
                     <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
                 <?php } else { ?>
                     <li class="nav-item"><a class="nav-link"
-                                            href="account">Hello, <?php echo $_SESSION['auth_username'] ?></a></li>
+                                            href="account">Hello, <?= $_SESSION['auth_username'] ?></a></li>
                     <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
                 <?php } ?>
             </ul>

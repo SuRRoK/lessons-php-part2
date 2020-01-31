@@ -3,6 +3,7 @@
 namespace app\models;
 
 use app\models\MailMailer;
+use Swift_Mailer;
 use Swift_Message;
 
 class MailSend
@@ -19,7 +20,7 @@ class MailSend
     /**
      * @param $mail_login
      * @param $mail_password
-     * @return \Swift_Mailer
+     * @return Swift_Mailer
      */
     public function InitTransport($mail_login, $mail_password)
     {

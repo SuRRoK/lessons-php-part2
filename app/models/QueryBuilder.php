@@ -30,7 +30,6 @@ class QueryBuilder
             ->limit($limit);
 
         $stmt = $this->pdo->prepare($select->getStatement());
-        d($stmt);
         $stmt->execute($select->getBindValues());
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
@@ -45,7 +44,6 @@ class QueryBuilder
             ->limit($limit);
 
         $stmt = $this->pdo->prepare($select->getStatement());
-        d($stmt);
         $stmt->execute($select->getBindValues());
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
@@ -61,7 +59,6 @@ class QueryBuilder
             ->limit($limit);
 
         $stmt = $this->pdo->prepare($select->getStatement());
-        d($stmt);
         $stmt->execute($select->getBindValues());
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
@@ -89,7 +86,6 @@ class QueryBuilder
             ->limit($limit);
 
         $stmt = $this->pdo->prepare($select->getStatement());
-        d($stmt);
         $stmt->execute($select->getBindValues());
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
@@ -116,7 +112,6 @@ class QueryBuilder
             ->limit($limit);
 
         $stmt = $this->pdo->prepare($select->getStatement());
-        d($stmt);
         $stmt->execute($select->getBindValues());
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
@@ -205,7 +200,6 @@ class QueryBuilder
             ->bindValue($idCol, $id);
 
         $sth = $this->pdo->prepare($select->getStatement());
-        d($sth);
         $sth->execute($select->getBindValues());
 
         return $sth->fetch(PDO::FETCH_ASSOC);
@@ -232,7 +226,6 @@ class QueryBuilder
 
 
         $sth = $this->pdo->prepare($select->getStatement());
-        d($sth);
         $sth->execute($select->getBindValues());
         //меняем тип вывода массива в зависимости от количества аргументов (столбцов)
         if (count($data) > 1) {
@@ -259,9 +252,7 @@ class QueryBuilder
 
 
         $sth = $this->pdo->prepare($select->getStatement());
-        d($sth);
         $sth->execute($select->getBindValues());
-        //меняем тип вывода массива в зависимости от количества аргументов (столбцов)
         if (count($data) > 1) {
             $result = $sth->fetchAll(PDO::FETCH_ASSOC);
         } else {
@@ -287,9 +278,7 @@ class QueryBuilder
 
 
         $sth = $this->pdo->prepare($select->getStatement());
-        d($sth);
         $sth->execute($select->getBindValues());
-        //меняем тип вывода массива в зависимости от количества аргументов (столбцов)
         if (count($data) > 1) {
             $result = $sth->fetchAll(PDO::FETCH_ASSOC);
         } else {
@@ -311,11 +300,8 @@ class QueryBuilder
             ->bindValue('postID', $postID);
 
         $sth = $this->pdo->prepare($select->getStatement());
-        d($sth);
-        //d($select);
         $sth->execute($select->getBindValues());
 
-        //меняем тип вывода массива в зависимости от количества аргументов (столбцов)
         if (count($data) > 1) {
             $result = $sth->fetchAll(PDO::FETCH_ASSOC);
         } else {
@@ -357,7 +343,6 @@ class QueryBuilder
             ->bindValue('id', $id);
 
         $sth = $this->pdo->prepare($select->getStatement());
-        d($sth);
         $sth->execute($select->getBindValues());
 
         return $sth->fetch(PDO::FETCH_COLUMN);

@@ -15,8 +15,8 @@ $this->layout('default', ['title' => "Blog4all - $title"]) ?>
 
                 <?php if ($p['image'] != '') { ?>
                     <div class="posts__content__picture">
-                        <img src="/images/<?php echo $p['image'] ?> "
-                             alt="<?php echo html_entity_decode($p['title']) ?>"
+                        <img src="/images/<?= $p['image'] ?> "
+                             alt="<?= html_entity_decode($p['title']) ?>"
                              class="img-fluid img-thumbnail">
                     </div>
                 <?php } else { ?>
@@ -27,19 +27,19 @@ $this->layout('default', ['title' => "Blog4all - $title"]) ?>
 
                 <div class="posts__content__main">
                     <div class="posts__content__main__title">
-                        <h3><a href="/post?id=<?php echo $p['ID'] ?>"><?php echo html_entity_decode($p['title']) ?></a>
+                        <h3><a href="/post?id=<?= $p['ID'] ?>"><?= html_entity_decode($p['title']) ?></a>
                             <h3>
                     </div>
                     <div class="posts__content__main__text">
-                        <?php echo html_entity_decode($p['content']) ?>
+                        <?= html_entity_decode($p['content']) ?>
                     </div>
 
                 </div>
 
             </div>
             <div class="posts__content__main__bottom">
-                <div class="posts__author"><?php echo "Author: " . $p['username'] ?></div>
-                <div><?php echo "Category: " . $p['category'] ?></div>
+                <div class="posts__author"><?= "Author: " . $p['username'] ?></div>
+                <div><?= "Category: " . $p['category'] ?></div>
             </div>
 
 

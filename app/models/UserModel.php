@@ -3,10 +3,26 @@
 namespace app\models;
 //require_once '../config-mail-accounts.php';
 
+use Delight\Auth\AuthError;
+use Delight\Auth\EmailNotVerifiedException;
+use Delight\Auth\InvalidEmailException;
+use Delight\Auth\InvalidPasswordException;
+use Delight\Auth\InvalidSelectorTokenPairException;
+use Delight\Auth\NotLoggedInException;
+use Delight\Auth\TokenExpiredException;
+use Delight\Auth\TooManyRequestsException;
+use Delight\Auth\UserAlreadyExistsException;
+
 class UserModel extends AppModel
 
 {
 
+    /**
+     * @param $email
+     * @param $password
+     * @param $username
+     * @throws AuthError
+     */
     public function registerUser($email, $password, $username)
     {
         try {
@@ -23,19 +39,19 @@ class UserModel extends AppModel
             });
 
             // echo 'We have signed up a new user with the ID ' . $userId;
-        } catch (\Delight\Auth\InvalidEmailException $e) {
+        } catch (InvalidEmailException $e) {
             $_SESSION['message'] = 'Invalid e-mail address. Please, check it.,';
             $_SESSION['message_status'] = 1;
             header('Location: /register');
-        } catch (\Delight\Auth\InvalidPasswordException $e) {
+        } catch (InvalidPasswordException $e) {
             $_SESSION['message'] = 'Invalid password. Please, check it.';
             $_SESSION['message_status'] = 1;
             header('Location: /register');
-        } catch (\Delight\Auth\UserAlreadyExistsException $e) {
+        } catch (UserAlreadyExistsException $e) {
             $_SESSION['message'] = 'Current e-mail already use. Please, use another';
             $_SESSION['message_status'] = 1;
             header('Location: /register');
-        } catch (\Delight\Auth\TooManyRequestsException $e) {
+        } catch (TooManyRequestsException $e) {
             $_SESSION['message'] = 'You are trying register too often. Try again in an hour.';
             $_SESSION['message_status'] = 1;
             header('Location: /register');
@@ -49,22 +65,22 @@ class UserModel extends AppModel
             $_SESSION['message'] = 'You are successfully confirm your e-mail!';
             header('Location: /login');
             exit();
-        } catch (\Delight\Auth\InvalidSelectorTokenPairException $e) {
+        } catch (InvalidSelectorTokenPairException $e) {
             $_SESSION['message'] = 'Invalid token';
             $_SESSION['message_status'] = 1;
             header('Location: /');
             exit();
-        } catch (\Delight\Auth\TokenExpiredException $e) {
+        } catch (TokenExpiredException $e) {
             $_SESSION['message'] = 'Token expired';
             $_SESSION['message_status'] = 1;
             header('Location: /');
             exit();
-        } catch (\Delight\Auth\UserAlreadyExistsException $e) {
+        } catch (UserAlreadyExistsException $e) {
             $_SESSION['message'] = 'Email address already exists';
             $_SESSION['message_status'] = 1;
             header('Location: /');
             exit();
-        } catch (\Delight\Auth\TooManyRequestsException $e) {
+        } catch (TooManyRequestsException $e) {
             $_SESSION['message'] = 'Too many requests';
             $_SESSION['message_status'] = 1;
             header('Location: /');
@@ -80,22 +96,22 @@ class UserModel extends AppModel
             $_SESSION['message'] = 'You are successfully logged in!';
             header('Location: /');
             exit();
-        } catch (\Delight\Auth\InvalidEmailException $e) {
+        } catch (InvalidEmailException $e) {
             $_SESSION['message'] = 'Wrong email address!';
             $_SESSION['message_status'] = 1;
             header('Location: /login');
             exit();
-        } catch (\Delight\Auth\InvalidPasswordException $e) {
+        } catch (InvalidPasswordException $e) {
             $_SESSION['message'] = 'Wrong password';
             $_SESSION['message_status'] = 1;
             header('Location: /login');
             exit();
-        } catch (\Delight\Auth\EmailNotVerifiedException $e) {
+        } catch (EmailNotVerifiedException $e) {
             $_SESSION['message'] = 'Email not verified yet';
             $_SESSION['message_status'] = 1;
             header('Location: /login');
             exit();
-        } catch (\Delight\Auth\TooManyRequestsException $e) {
+        } catch (TooManyRequestsException $e) {
             $_SESSION['message'] = 'Too many requests';
             $_SESSION['message_status'] = 1;
             header('Location: /login');
@@ -112,7 +128,7 @@ class UserModel extends AppModel
 
             header('Location: /?msg=logout');
             exit();
-        } catch (\Delight\Auth\NotLoggedInException $e) {
+        } catch (NotLoggedInException $e) {
             $_SESSION['message'] = 'You are not logged in';
             $_SESSION['message_status'] = 1;
             header('Location: /login');

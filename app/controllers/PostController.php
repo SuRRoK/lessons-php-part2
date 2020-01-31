@@ -9,7 +9,6 @@ class PostController extends AppController
 
     public function addPost()
     {
-        // echo 'This is page to add post';
         $categories = $this->categories->getAllCategories();
         echo $this->templates->render('addpost', ['categories' => $categories]);
     }

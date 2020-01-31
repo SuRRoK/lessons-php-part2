@@ -3,23 +3,23 @@
 $this->layout('default', ['title' => $post['title']]);
 ?>
 
-<h1 class="text-center"><?php echo html_entity_decode($post['title']) ?></h1>
+<h1 class="text-center"><?= html_entity_decode($post['title']) ?></h1>
 <div class="content">
     <hr>
     <?php if ($post['image'] != '') { ?>
         <div class="content__picture">
-            <img src="/images/<?php echo $post['image'] ?> " alt="<?php echo html_entity_decode($post['title']) ?>"
+            <img src="/images/<?= $post['image'] ?> " alt="<?= html_entity_decode($post['title']) ?>"
                  class="img-fluid img-thumbnail">
         </div>
         <hr>
     <?php } ?>
 
     <div class="content__main__text">
-        <?php echo html_entity_decode($post['content']) ?>
+        <?= html_entity_decode($post['content']) ?>
     </div>
     <hr>
     <div class="content__main__bottom">
-        Posted by <?php echo $post['username'] ?>  <?php echo $post['time'] ?>
+        Posted by <?= $post['username'] ?>  <?= $post['time'] ?>
     </div>
 </div>
 <?php if (array_key_exists('auth_logged_in', $_SESSION)) {
@@ -33,7 +33,7 @@ $this->layout('default', ['title' => $post['title']]);
 
             <div class="post_buttons">
                 <form action="/editpost">
-                    <input type="hidden" name="id" value="<?php echo $post['ID'] ?>">
+                    <input type="hidden" name="id" value="<?= $post['ID'] ?>">
                     <button class="btn btn-warning">Edit</button>
                 </form>
                 <div>
@@ -68,8 +68,8 @@ $this->layout('default', ['title' => $post['title']]);
                         <textarea rows="4" cols="60" name="content" class="form-control"
                                   id="editor"> Enter your comment</textarea> <br>
 
-                        <input type="hidden" id="postId" name="postId" value="<?php echo $post['ID'] ?>">
-                        <input type="hidden" id="status" name="status" value="<?php echo $post['status'] ?>">
+                        <input type="hidden" id="postId" name="postId" value="<?= $post['ID'] ?>">
+                        <input type="hidden" id="status" name="status" value="<?= $post['status'] ?>">
                     </div>
                     <button class="btn btn-success">Add comment</button>
                 </form>
@@ -90,10 +90,10 @@ $this->layout('default', ['title' => $post['title']]);
                 <hr>
                 <div class="one-comment">
                     <div class="comment-author-date">
-                        Posted by <span><?php echo $comment['username'] ?> </span> <?php echo $comment['date'] ?>
+                        Posted by <span><?= $comment['username'] ?> </span> <?= $comment['date'] ?>
                     </div>
                     <div class="comment-content">
-                        <?php echo html_entity_decode($comment['content']) ?>
+                        <?= html_entity_decode($comment['content']) ?>
                     </div>
                 </div>
 
@@ -117,18 +117,16 @@ $this->layout('default', ['title' => $post['title']]);
         var buttonact = $('button.activate_post');
         var buttondeact = $('button.deactivate_post');
 
-        if (postStatus == 1) {
+        if (postStatus === 1) {
             buttonact.hide();
         }
-        if (postStatus == 0) {
+        if (postStatus === 0) {
             buttondeact.hide();
         }
 
 
         buttondeact.click(function () {
             var idValue = $('#postId').attr('value');
-
-            console.log(idValue);
 
             $.ajax({
                 type: "POST",
@@ -144,7 +142,7 @@ $this->layout('default', ['title' => $post['title']]);
                     buttonact.show();
                 }
             })
-        })
+        });
 
         buttonact.click(function () {
             var idValue = $('#postId').attr('value');

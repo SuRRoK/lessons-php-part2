@@ -26,4 +26,5 @@
       <path value="$PROJECT_DIR$/vendor/delight-im/cookie" />
     </include_path>
   </component>
+  <component name="PhpProjectSharedConfiguration" php_language_level="7" />
 </project>

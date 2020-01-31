@@ -5,13 +5,8 @@ namespace app\models;
 class CategoriesModel extends AppModel
 
 {
-    public function getPostCategory($id)
-    {
 
-
-    }
-
-    public function deleteCategoryByID($id, $image)
+    public function deleteCategoryByID($id,$image)
     {
 
         $table = 'categories';
@@ -36,9 +31,9 @@ class CategoriesModel extends AppModel
 
         $data = [
 
-            'name' => $name,
+            'name'        => $name,
             'description' => $description,
-            'image' => $image_name,
+            'image'       => $image_name,
         ];
 
         $this->query->insert($data, $table);
@@ -58,14 +53,14 @@ class CategoriesModel extends AppModel
         if ($file != null) {
             $image_name = $this->image->isImageSet($_FILES);
             $data = [
-                'name' => $name,
+                'name'        => $name,
                 'description' => $description,
-                'image' => $image_name,
+                'image'       => $image_name,
             ];
         } else {
 
             $data = [
-                'name' => $name,
+                'name'        => $name,
                 'description' => $description,
             ];
         }
@@ -93,8 +88,8 @@ class CategoriesModel extends AppModel
     {
 
         $table = 'posts';
-        $data = ['categoryID'];
-        $array = $this->query->getColumns($data, $table);
+        $data =['categoryID'];
+        $array = $this->query->getColumns($data,$table);
         return array_count_values($array);
 
     }

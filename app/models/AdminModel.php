@@ -2,15 +2,13 @@
 
 namespace app\models;
 
-//use Cake\Chronos\Chronos;
-
 use Cake\Chronos\Chronos;
+use Delight\Auth\Role;
+use Delight\Auth\UnknownIdException;
 
 class AdminModel extends AppModel
 
 {
-
-
     public function getOneUser($id)
     {
         $table = 'users';
@@ -22,10 +20,10 @@ class AdminModel extends AppModel
     public function setAsAdmin($userId)
     {
         try {
-            $this->auth->admin()->addRoleForUserById($userId, \Delight\Auth\Role::ADMIN);
+            $this->auth->admin()->addRoleForUserById($userId, Role::ADMIN);
             $_SESSION['msg'] = 'now_user_is_admin';
             header('Location: /admin/users');
-        } catch (\Delight\Auth\UnknownIdException $e) {
+        } catch (UnknownIdException $e) {
             die('Unknown user ID');
         }
     }
@@ -33,10 +31,10 @@ class AdminModel extends AppModel
     public function deSetAsAdmin($userId)
     {
         try {
-            $this->auth->admin()->removeRoleForUserById($userId, \Delight\Auth\Role::ADMIN);
+            $this->auth->admin()->removeRoleForUserById($userId, Role::ADMIN);
             $_SESSION['msg'] = 'now_user_is_admin';
             header('Location: /admin/users');
-        } catch (\Delight\Auth\UnknownIdException $e) {
+        } catch (UnknownIdException $e) {
             die('Unknown user ID');
         }
     }
@@ -63,47 +61,4 @@ class AdminModel extends AppModel
         }
         return $numbers;
     }
-
-    /*    public function savePost ()
-        {
-            $table = 'posts';
-            $title = htmlentities($_POST['title']);
-            $content = htmlentities($_POST['content']);
-
-            if  ($_FILES['image']['name'] != '')
-            {
-                $image_name = $this->uploadImage($_FILES['image']);
-            }
-            else {
-                $image_name = '';
-            }
-
-            if ($_SESSION['auth_logged_in']) {
-                $userId = $_SESSION['auth_user_id'];
-            }
-            else {
-                $userId = '0';
-            }
-            $date = new Chronos();
-            $today = $date->toDateTimeString();
-            $category = 1;
-
-            $data = [
-                'userID'=>$userId,
-                'categoryID'=>$category,
-                'title'=>$title,
-                'content'=>$content,
-                'date' =>$today,
-                'image' =>$image_name
-            ];
-
-            $this->query->insert($data, $table);
-            $_SESSION['message']='add_successful';
-            header('Location: /addpost');
-            exit();
-
-
-
-        }    */
-
 }

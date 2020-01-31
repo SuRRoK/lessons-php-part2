@@ -8,7 +8,6 @@ return [
 
     PDO::class => function () use ($password, $username, $db_name, $host, $driver) {
         return new PDO("$driver:host=$host;dbname=$db_name", $username, $password);
-        //d(PDO::class);
     },
 
     QueryFactory::class => function () {

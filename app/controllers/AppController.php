@@ -42,23 +42,6 @@ class AppController
         $this->image = $image;
         $this->admin = $admin;
         $this->time = $time;
-        // d($engine);
     }
 
-/*    public function checkIncomingData ($key, $array) {
-
-        if (array_key_exists($key,$array)) {
-            return true;
-
-        } return false;
-    }
-
-    public function checkUserRights ($postId, $postUserID)
-    {
-
-        if ($postId &&
-            (($postUserID == $_SESSION['auth_user_id']) || ($_SESSION['auth_roles'] === 1))) {
-            return true;
-        } else return false;
-    }*/
 }

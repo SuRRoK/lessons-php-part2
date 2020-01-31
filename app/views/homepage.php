@@ -30,8 +30,8 @@ $this->layout('default', ['title' => 'Blog4all']) ?>
                 <hr>
                 <?php if ($p['image'] != '') { ?>
                     <div class="newposts__content__picture">
-                        <img src="/images/<?php echo $p['image'] ?> "
-                             alt="<?php echo html_entity_decode($p['title']) ?>"
+                        <img src="/images/<?= $p['image'] ?> "
+                             alt="<?= html_entity_decode($p['title']) ?>"
                              class="img-fluid img-thumbnail">
                     </div>
                 <?php } else { ?>
@@ -42,11 +42,11 @@ $this->layout('default', ['title' => 'Blog4all']) ?>
 
                 <div class="newposts__content__main">
                     <div class="newposts__content__main__title">
-                        <h3><a href="/post?id=<?php echo $p['ID'] ?>"><?php echo html_entity_decode($p['title']) ?></a>
+                        <h3><a href="/post?id=<?= $p['ID'] ?>"><?= html_entity_decode($p['title']) ?></a>
                             <h3>
                     </div>
                     <div class="newposts__content__main__bottom">
-                        <?php echo "Author: " . $p['username'] ?>
+                        <?= "Author: " . $p['username'] ?>
                     </div>
                 </div>
             </div>

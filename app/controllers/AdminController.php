@@ -5,6 +5,9 @@ namespace app\controllers;
 class AdminController extends AppController
 {
 
+    /**
+     * @param null $message
+     */
     public function admin($message = null)
     {
         if (array_key_exists('auth_logged_in', $_SESSION) && $_SESSION['auth_roles'] === 1) {

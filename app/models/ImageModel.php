@@ -3,6 +3,8 @@
 namespace app\models;
 
 
+use Delight\Auth\Auth;
+
 class ImageModel
 
 {
@@ -13,7 +15,7 @@ class ImageModel
     public function upload($image): string
     {
         $extension = pathinfo($image['name'], PATHINFO_EXTENSION);
-        $new_name = \Delight\Auth\Auth::createRandomString(16);
+        $new_name = Auth::createRandomString(16);
         $pic_name = $new_name . '.' . $extension;
         $tmp_name = $image['tmp_name'];
         move_uploaded_file($tmp_name, "images/" . $pic_name);

@@ -68,14 +68,11 @@ class PostsModel extends AppModel
         ];
         $join1 = ['LEFT', 'users', 'users.id=posts.userID'];
         $join2 = ['LEFT', 'categories', 'categories.id=posts.categoryID'];
-        //return $this->query->getColumnsJoin2($data, $table, $join1, $join2);
 
         $idCol = 'posts.userID';
         $idColEasy = 'user';
 
         return $this->query->getColumnsJoin2Where($userID, $data, $table, $join1, $join2, $idCol, $idColEasy);
-        //d($posts);
-        //return
 
     }
 

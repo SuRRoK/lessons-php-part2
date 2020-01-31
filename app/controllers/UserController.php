@@ -11,29 +11,6 @@ class UserController extends AppController
 
     public function login()
     {
-        //Старая система передачи сообщения пользователю. Просто на память
-
-        /* if (array_key_exists('message',$_SESSION)) {
-
-             switch ($_SESSION['message']) {
-                 case 'confirm_successful':
-                     $msg_to_page = 'You have successful confirm your e-mail! Now you can login';
-                     break;
-                 case 'login_successful':
-                     $msg_to_page = 'You have successful login. Now you can add your post or comment!';
-                     break;
-                 default:
-                     $msg_to_page = '';
-             }
-         } else {
-             $msg_to_page = '';
-         }
-         if (array_key_exists('msg',$_GET)) {
-
-             if ($_GET['msg'] == 'logout') {
-                 $msg_to_page = 'You have been successful logout. Now you can just look content!';
-             }
-         }*/
         if (!array_key_exists('auth_logged_in', $_SESSION)) {
 
             echo $this->templates->render('login');

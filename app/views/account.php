@@ -1,7 +1,4 @@
 <?php
-//d($posts);
-//d($comments) ;
-//d($_SERVER);
 
 $this->layout('default', ['title' => 'Blog4all - Personal Area']) ?>
 
@@ -16,23 +13,23 @@ $this->layout('default', ['title' => 'Blog4all - Personal Area']) ?>
                 <tbody>
                 <tr>
                     <th scope="row">Your username:</th>
-                    <td><?php echo $_SESSION['auth_username'] ?></td>
+                    <td><?= $_SESSION['auth_username'] ?></td>
                 </tr>
                 <tr>
                     <th scope="row">Your e-mail:</th>
-                    <td><?php echo $_SESSION['auth_email'] ?></td>
+                    <td><?= $_SESSION['auth_email'] ?></td>
                 </tr>
                 <tr>
                     <th scope="row">Your id in our system:</th>
-                    <td>#<?php echo $_SESSION['auth_user_id'] ?></td>
+                    <td>#<?= $_SESSION['auth_user_id'] ?></td>
                 </tr>
                 <tr>
                     <th scope="row">Your posts here:</th>
-                    <td><?php echo count($posts); ?></td>
+                    <td><?= count($posts); ?></td>
                 </tr>
                 <tr>
                     <th scope="row">Your comments here:</th>
-                    <td><?php echo count($comments); ?></td>
+                    <td><?= count($comments); ?></td>
                 </tr>
 
                 </tbody>
@@ -57,7 +54,7 @@ $this->layout('default', ['title' => 'Blog4all - Personal Area']) ?>
                             if ($current_id != $comment['postID']) {
                                 $current_id = $comment['postID']; ?>
                                 <tr>
-                                    <td colspan="3" class="comment_post_title"><?php echo $comment['title']; ?></td>
+                                    <td colspan="3" class="comment_post_title"><?= $comment['title']; ?></td>
                                 </tr>
 
                                 <tr>
@@ -69,12 +66,8 @@ $this->layout('default', ['title' => 'Blog4all - Personal Area']) ?>
                             <?php } ?>
 
                             <tr>
-                                <td class="align-middle"><?php echo html_entity_decode($comment['content']); ?></td>
-                                <td class="align-middle"><?php echo html_entity_decode($comment['date']); ?></td>
-
-                                <!--      <td class="align-middle">
-                                          suppress HtmlUnknownTarget
-                                          </td>-->
+                                <td class="align-middle"><?= html_entity_decode($comment['content']); ?></td>
+                                <td class="align-middle"><?= html_entity_decode($comment['date']); ?></td>
                             </tr>
 
                         <?php } ?>
@@ -89,8 +82,8 @@ $this->layout('default', ['title' => 'Blog4all - Personal Area']) ?>
 
                     <?php if ($p['image'] != '') { ?>
                         <div class="posts__content__picture">
-                            <img src="/images/<?php echo $p['image'] ?> "
-                                 alt="<?php echo html_entity_decode($p['title']) ?>"
+                            <img src="/images/<?= $p['image'] ?> "
+                                 alt="<?= html_entity_decode($p['title']) ?>"
                                  class="img-fluid img-thumbnail">
                         </div>
                     <?php } else { ?>
@@ -102,27 +95,27 @@ $this->layout('default', ['title' => 'Blog4all - Personal Area']) ?>
                     <div class="posts__content__main">
                         <div class="posts__content__main__title">
                             <h3>
-                                <a href="/post?id=<?php echo $p['ID'] ?>"><?php echo html_entity_decode($p['title']) ?></a>
+                                <a href="/post?id=<?= $p['ID'] ?>"><?= html_entity_decode($p['title']) ?></a>
                                 <h3>
                         </div>
                         <div class="posts__content__main__text">
-                            <?php echo html_entity_decode($p['content']) ?>
+                            <?= html_entity_decode($p['content']) ?>
                         </div>
                         <div class="posts__content__main__bottom">
-                            <?php echo '' ?>
+                            <?= '' ?>
                         </div>
                     </div>
                 </div>
                 <div class="user_posts_editors">
-                    <p class="foreach activepost btn btn-light" id="<?php echo $p['ID']; ?>"
-                       status="<?php echo $p['status']; ?>" title="Deactivate post"> Active </p>
-                    <p class="foreach notactivepost btn btn-light" id="<?php echo $p['ID']; ?>"
-                       status="<?php echo $p['status']; ?>"
+                    <p class="foreach activepost btn btn-light" id="<?= $p['ID']; ?>"
+                       status="<?= $p['status']; ?>" title="Deactivate post"> Active </p>
+                    <p class="foreach notactivepost btn btn-light" id="<?= $p['ID']; ?>"
+                       status="<?= $p['status']; ?>"
 
                        title="Activate post"> Not active </p>
 
                     <form action="/editpost">
-                        <input type="hidden" name="id" value="<?php echo $p['ID'] ?>">
+                        <input type="hidden" name="id" value="<?= $p['ID'] ?>">
                         <button class="btn btn-warning">Edit</button>
                     </form>
 
@@ -136,10 +129,10 @@ $this->layout('default', ['title' => 'Blog4all - Personal Area']) ?>
     $(document).ready(function () {
         var foreach = $('.foreach');
         foreach.each(function () {
-            if ($(this).attr('status') == 1 && $(this).attr('class') == 'foreach notactivepost btn btn-light') {
+            if ($(this).attr('status') === 1 && $(this).attr('class') === 'foreach notactivepost btn btn-light') {
                 $(this).hide();
             }
-            if ($(this).attr('status') == 0 && $(this).attr('class') == 'foreach activepost btn btn-light') {
+            if ($(this).attr('status') === 0 && $(this).attr('class') === 'foreach activepost btn btn-light') {
                 $(this).hide();
             }
         });
@@ -148,8 +141,6 @@ $this->layout('default', ['title' => 'Blog4all - Personal Area']) ?>
             var idValue = $(this).attr('id');
             var current = $(`p#${idValue}`);
             var notactive = $(`p#${idValue} + `);
-            //  console.log('Current'+current.text());
-            //  console.log('Not active'+notactive.text());
             $.ajax({
                 method: "POST",
                 url: "/deactivatepost",
@@ -169,8 +160,6 @@ $this->layout('default', ['title' => 'Blog4all - Personal Area']) ?>
             var idValue = $(this).attr('id');
             var notactive = $(`p#${idValue}`);
             var current = $(`p#${idValue}+ p`);
-            //  console.log('Current'+current.text());
-            //  console.log('Not active'+notactive.text());
             $.ajax({
                 method: "POST",
                 url: "/activatepost",
@@ -200,7 +189,6 @@ $this->layout('default', ['title' => 'Blog4all - Personal Area']) ?>
                 comments.show();
                 comments_btn.attr('id', 'selected_label');
                 posts_btn.attr('id', '');
-                console.log('True');
             }
 
         });
@@ -213,7 +201,6 @@ $this->layout('default', ['title' => 'Blog4all - Personal Area']) ?>
                 comments.hide();
                 comments_btn.attr('id', '');
                 posts_btn.attr('id', 'selected_label');
-                console.log('True');
             }
 
         })
