@@ -2,40 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="269dc2a9-d127-4797-a531-f6642324a391" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/AdminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/AppController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/AppController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/PostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/PostController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/di_definitions_config.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/di_definitions_config.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/AdminModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/AdminModel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/AppModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/AppModel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/CategoriesModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/CategoriesModel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/ImageModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/ImageModel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/MailMailer.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/MailMailer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/MailSend.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/MailSend.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/PostsModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/PostsModel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/QueryBuilder.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/QueryBuilder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/UserModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/UserModel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/account.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/account.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/categories.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/categories.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/category.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/category.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/default.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/default.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/editpost.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/editpost.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/homepage.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/homepage.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/post.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/post.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/posts.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/posts.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/default.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution>
       <executable />
@@ -95,7 +69,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1580449896868</updated>
-      <workItem from="1580449898351" duration="3848000" />
+      <workItem from="1580449898351" duration="4576000" />
+      <workItem from="1580538292275" duration="596000" />
     </task>
     <servers />
   </component>
